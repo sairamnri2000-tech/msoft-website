@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MSOFT Technologies | Australia-based Technology Services</title>
+<meta name="description" content="MSOFT Technologies - Australia-based professional technology services: AI, networking and security, web and mobile app development, and cloud computing.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0d1b2a; --navy2:#1b263b; --bronze:#b5762a; --bronze-dark:#7c4a14;
+    --cream:#faf6f0; --text:#1f2933; --muted:#5f6b78; --white:#fff; --line:#e7e1d8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Poppins","Segoe UI",Arial,sans-serif;color:var(--text);line-height:1.65;background:var(--white)}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1150px;margin:0 auto;padding:0 22px}
+
+  /* ---------- Header ---------- */
+  header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{display:flex;align-items:center;gap:10px}
+  .brand svg{width:42px;height:42px;flex-shrink:0}
+  .brand-text{line-height:1.1}
+  .brand-text b{display:block;font-size:1.25rem;font-weight:800;color:var(--navy);letter-spacing:1px}
+  .brand-text small{font-size:.68rem;letter-spacing:3px;color:var(--bronze);font-weight:600}
+  nav{display:flex;align-items:center;gap:26px}
+  nav a{font-weight:500;color:var(--muted);font-size:.95rem}
+  nav a:hover{color:var(--bronze)}
+  nav .nav-cta{background:var(--bronze);color:var(--white);padding:9px 18px;border-radius:6px;font-weight:600}
+  nav .nav-cta:hover{background:var(--bronze-dark);color:var(--white)}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;min-height:560px;display:flex;align-items:center;color:var(--white);
+    background:linear-gradient(100deg,rgba(13,27,42,.94) 0%,rgba(13,27,42,.80) 45%,rgba(13,27,42,.35) 100%),
+    url("https://images.pexels.com/photos/5073493/pexels-photo-5073493.jpeg?auto=compress&cs=tinysrgb&w=1800") center/cover no-repeat}
+  .hero-inner{padding:90px 0}
+  .tag{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.35);padding:6px 14px;border-radius:30px;font-size:.75rem;letter-spacing:2px;font-weight:600}
+  .tag::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--bronze)}
+  .hero h1{font-size:clamp(2.1rem,5vw,3.4rem);line-height:1.15;font-weight:800;margin-top:20px;max-width:680px}
+  .hero h1 span{color:#e3a857}
+  .hero p{margin-top:18px;font-size:1.12rem;opacity:.9;max-width:560px}
+  .btns{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:13px 28px;border-radius:6px;font-weight:600;transition:.2s}
+  .btn-primary{background:var(--bronze);color:var(--white)}
+  .btn-primary:hover{background:var(--bronze-dark)}
+  .btn-ghost{border:2px solid rgba(255,255,255,.7);color:var(--white)}
+  .btn-ghost:hover{background:var(--white);color:var(--navy)}
+
+  /* ---------- Sections ---------- */
+  section{padding:90px 0}
+  .cream{background:var(--cream)}
+  .head{text-align:center;max-width:680px;margin:0 auto 50px}
+  .eyebrow{color:var(--bronze);font-weight:700;font-size:.78rem;letter-spacing:2.5px;text-transform:uppercase}
+  h2{font-size:clamp(1.7rem,3.6vw,2.4rem);color:var(--navy);margin:8px 0 12px;line-height:1.25}
+  .head p{color:var(--muted)}
+
+  /* Image cards */
+  .grid{display:grid;gap:26px;grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 4px 18px rgba(13,27,42,.07);transition:.25s;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-5px);box-shadow:0 14px 34px rgba(13,27,42,.13)}
+  .card .img{height:200px;overflow:hidden}
+  .card .img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .card:hover .img img{transform:scale(1.06)}
+  .card .body{padding:24px 24px 28px;flex:1}
+  .card h3{color:var(--navy);font-size:1.15rem;margin-bottom:8px;font-weight:700}
+  .card p{color:var(--muted);font-size:.94rem}
+  .card .num{display:inline-block;color:var(--bronze);font-weight:700;font-size:.8rem;letter-spacing:2px;margin-bottom:6px}
+
+  /* Services: 3 + 2 centred */
+  .services{display:flex;flex-wrap:wrap;justify-content:center;gap:26px}
+  .services .card{width:calc((100% - 52px)/3)}
+
+  /* Process strip */
+  .process{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:step}
+  .step{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:26px;position:relative}
+  .step::before{counter-increment:step;content:"0" counter(step);font-size:2rem;font-weight:800;color:#ecdcc6;display:block;line-height:1;margin-bottom:10px}
+  .step h4{color:var(--navy);margin-bottom:6px}
+  .step p{color:var(--muted);font-size:.9rem}
+
+  /* Contact band */
+  .cta{background:linear-gradient(120deg,var(--navy),var(--navy2));color:var(--white);border-radius:16px;padding:54px;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;position:relative;overflow:hidden}
+  .cta::after{content:"";position:absolute;right:-80px;top:-80px;width:260px;height:260px;border-radius:50%;background:rgba(181,118,42,.18)}
+  .cta h2{color:var(--white);margin:0 0 8px}
+  .cta p{opacity:.85;max-width:520px}
+  .cta .btn{position:relative;z-index:1}
+
+  /* Footer */
+  footer{background:var(--navy);color:#b9c2cc;padding:50px 0 24px;margin-top:90px}
+  .foot-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.1)}
+  footer .brand-text b{color:var(--white)}
+  footer h5{color:var(--white);font-size:.95rem;margin-bottom:12px}
+  footer ul{list-style:none}
+  footer li{margin-bottom:6px;font-size:.9rem}
+  footer li a:hover{color:#e3a857}
+  .foot-bottom{padding-top:20px;font-size:.84rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+  /* Responsive */
+  @media (max-width:950px){
+    .grid{grid-template-columns:repeat(2,1fr)}
+    .services .card{width:calc((100% - 26px)/2)}
+    .process{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (max-width:640px){
+    nav a:not(.nav-cta){display:none}
+    .grid{grid-template-columns:1fr}
+    .services .card{width:100%}
+    .process{grid-template-columns:1fr}
+    .hero{min-height:480px}
+    section{padding:64px 0}
+    .cta{padding:34px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="MSOFT Technologies home">
+      <!-- Logo mark (original draft) -->
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <rect width="48" height="48" rx="11" fill="#0d1b2a"/>
+        <path d="M11 34V14l13 12 13-12v20" fill="none" stroke="#e3a857" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="24" cy="34" r="3" fill="#e3a857"/>
+      </svg>
+      <span class="brand-text"><b>MSOFT</b><small>TECHNOLOGIES</small></span>
+    </a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#how">How we work</a>
+      <a href="#contact" class="nav-cta">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<div class="hero" id="top">
+  <div class="wrap hero-inner">
+    <div class="tag">AUSTRALIA BASED</div>
+    <h1>Professional <span>Technology</span> Services</h1>
+    <p>We make technology look easy and accessible - from AI and cloud to networks, web and mobile apps.</p>
+    <div class="btns">
+      <a href="#services" class="btn btn-primary">See Services</a>
+      <a href="#contact" class="btn btn-ghost">Contact Us</a>
+    </div>
+  </div>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">About Us</div>
+      <h2>Why businesses choose MSOFT</h2>
+      <p>We help small and mid-sized businesses run reliable, modern technology without the cost of a large in-house IT team.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="img"><img src="https://images.pexels.com/photos/574077/pexels-photo-574077.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Technical experience"></div>
+        <div class="body">
+          <h3>Technical Experience</h3>
+          <p>Expertise across operating systems, networks and databases, focused on small to mid-sized projects.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="img"><img src="https://images.pexels.com/photos/3183131/pexels-photo-3183131.jpeg?auto=compress&cs=tinysrgb&w=800" alt="High return on investment"></div>
+        <div class="body">
+          <h3>High ROI</h3>
+          <p>Outsource IT management to us, spend less on maintenance, and invest more in your core business.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="img"><img src="https://images.pexels.com/photos/3184639/pexels-photo-3184639.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Satisfaction guaranteed"></div>
+        <div class="body">
+          <h3>Satisfaction Guaranteed</h3>
+          <p>Tailored service and professional support, focused on getting the result right for you.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services" class="cream">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Our Services</div>
+      <h2>What we do</h2>
+      <p>End-to-end technology services built around your requirements.</p>
+    </div>
+    <div class="services">
+      <div class="card">
+        <div class="img"><img src="https://cdn.pixabay.com/photo/2018/10/21/10/13/technology-3762558_1280.jpg" alt="Artificial intelligence"></div>
+        <div class="body"><span class="num">01</span>
+          <h3>Artificial Intelligence</h3>
+          <p>We build and train AI assistants around your business needs.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="img"><img src="https://images.pexels.com/photos/1597776/pexels-photo-1597776.jpeg?auto=compress&cs=tinysrgb&w=800" alt="IT networking and security"></div>
+        <div class="body"><span class="num">02</span>
+          <h3>IT Networking &amp; Security</h3>
+          <p>Design, setup and protection of your business networks and systems.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="img"><img src="https://images.pexels.com/photos/160107/pexels-photo-160107.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Web and application development"></div>
+        <div class="body"><span class="num">03</span>
+          <h3>Web &amp; Application Development</h3>
+          <p>Custom web applications developed with you, from idea to launch.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="img"><img src="https://images.pexels.com/photos/3184319/pexels-photo-3184319.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Mobile app development"></div>
+        <div class="body"><span class="num">04</span>
+          <h3>Mobile App Development</h3>
+          <p>Mobile apps designed and built around your specific needs.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="img"><img src="https://images.pexels.com/photos/1624895/pexels-photo-1624895.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cloud computing"></div>
+        <div class="body"><span class="num">05</span>
+          <h3>Cloud Computing</h3>
+          <p>Cloud services on Salesforce, AWS and Azure, matched to your requirements.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW WE WORK ================= -->
+<section id="how">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">How We Work</div>
+      <h2>Simple, clear delivery</h2>
+    </div>
+    <div class="process">
+      <div class="step"><h4>Understand</h4><p>We listen to your goals and review your current setup.</p></div>
+      <div class="step"><h4>Plan</h4><p>We propose the right solution, scope and timeline.</p></div>
+      <div class="step"><h4>Deliver</h4><p>We build, test and launch with regular updates to you.</p></div>
+      <div class="step"><h4>Support</h4><p>We stay on hand to maintain and improve what we built.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="cta">
+      <div>
+        <h2>Let's talk about your project</h2>
+        <p>Connect with us on LinkedIn to discuss your requirements. We'll get back to you quickly.</p>
+      </div>
+      <a href="https://www.linkedin.com/company/msoft-technologies-aus/" target="_blank" rel="noopener" class="btn btn-primary">Message us on LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="brand">
+          <svg viewBox="0 0 48 48" aria-hidden="true" style="width:38px;height:38px">
+            <rect width="48" height="48" rx="11" fill="#1b263b"/>
+            <path d="M11 34V14l13 12 13-12v20" fill="none" stroke="#e3a857" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="24" cy="34" r="3" fill="#e3a857"/>
+          </svg>
+          <span class="brand-text"><b>MSOFT</b><small>TECHNOLOGIES</small></span>
+        </div>
+        <p style="margin-top:12px;font-size:.9rem;max-width:280px">Australia-based professional technology services.</p>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Artificial Intelligence</a></li>
+          <li><a href="#services">Networking &amp; Security</a></li>
+          <li><a href="#services">Web &amp; App Development</a></li>
+          <li><a href="#services">Cloud Computing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#how">How We Work</a></li>
+          <li><a href="https://www.linkedin.com/company/msoft-technologies-aus/" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 MSOFT Technologies. All rights reserved.</span>
+      <span>ABN 57 605 559 779 &middot; <a href="privacy.html" style="color:#e3a857">Privacy</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
